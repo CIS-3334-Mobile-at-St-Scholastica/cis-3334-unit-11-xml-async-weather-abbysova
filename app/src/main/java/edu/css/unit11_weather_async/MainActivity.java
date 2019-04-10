@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * Set Temp
+     * Set the numeric value of the temperature in the designated spot
      * @param newTemp
      */
     public void setTemp(String newTemp) {
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * Set Wind
+     * Set the numeric value of the wind in mph
      * @param newWind
      */
     public void setWind(String newWind) {
@@ -64,13 +66,14 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * get Location from User input
+     * Retrieve the user's location based on their input
      */
     public String getLocation() {
         return etLoc.getText().toString();
     }
 
     /**
-     * Set Status 
+     * Set Status
      * @param newStatus
      */
     public void setStatus(String newStatus) {
