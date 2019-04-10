@@ -16,13 +16,23 @@ import java.util.Scanner;
 
 import static org.xmlpull.v1.XmlPullParser.TYPES;
 
+/**
+ * AsyncDownloadXML extends AsyncTask<MainActivity, String, String>
+ * @author Abigailsova
+ * @version 1.0
+ * @since 1.0
+ */
 public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
-
+    /**
+     * Declares MainActvity as MainActivityLink
+     */
     MainActivity mainActivityLink;
-
-    //Implementation of AsyncTask used to download XML feed
-    // This method is run in a separate thread.  Do not do any UI stuff here.
-    // Calls onPostExecute when done and passes it the return value or String
+    /**
+     *Implementation of AsyncTask used to download XML feed
+     *This method is run in a separate thread.  Do not do any UI stuff here.
+     * Calls onPostExecute when done and passes it the return value or String
+     * @param new_actWeather
+     */
     @Override
     protected String doInBackground(MainActivity... new_actWeather) {
         try {
@@ -69,7 +79,7 @@ public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
                 eventType = xpp.next();
             }
            return "Successfully updated weather";
-
+//Catches errors that may occur and dispays messages
         } catch (IOException e) {
             Log.v("== CIS 3334 -- ERROR ==","AsyncDownloadXML doInBackground IOException");
             Log.v("== CIS 3334 -- ERROR ==",e.getMessage());
@@ -85,12 +95,21 @@ public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
         }
     }
 
+    /**
+     * Method runs while setting wind and temp to update them
+     * @param update
+     */
     @Override
     protected void onProgressUpdate(String... update) {
         Log.v("== CIS 3334 ==","in onProgressUpdate");
         mainActivityLink.setTemp(update[0]);
         mainActivityLink.setWind(update[1]);
     }
+
+    /**
+     * Methods runs to update if information changes.
+     * @param result
+     */
 
     @Override
     protected void onPostExecute(String result) {
