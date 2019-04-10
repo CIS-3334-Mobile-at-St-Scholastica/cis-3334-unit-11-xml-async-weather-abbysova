@@ -12,6 +12,13 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+/**
+ * @author Abigailsova
+ * @version 1.0
+ * @since 1.0
+ * Main Activity extends AppCompatActivity
+ */
+
 public class MainActivity extends AppCompatActivity {
     EditText etLoc;
     EditText etTemp;
@@ -19,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
     EditText etVis;
 
     AsyncDownloadXML AsyncWeatherDownloader = new AsyncDownloadXML();
-
+    /**
+     * When the app is opened this method is called
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,25 +41,38 @@ public class MainActivity extends AppCompatActivity {
         etWind =  (EditText) findViewById(R.id.textWind);
         etVis =  (EditText) findViewById(R.id.textVis);
     }
-
+    /**
+     * When get weather button is clicked method is called
+     */
     public void btnClick (View v) throws XmlPullParserException, URISyntaxException, IOException {
         // Download the weather asynchronously
         AsyncWeatherDownloader.execute(this);
     }
-
+    /**
+     * Set Temp
+     * @param newTemp
+     */
     public void setTemp(String newTemp) {
         etTemp.setText(newTemp);
     }
-
+    /**
+     * Set Wind
+     * @param newWind
+     */
     public void setWind(String newWind) {
         etWind.setText(newWind);
     }
-
+    /**
+     * get Location from User input
+     */
     public String getLocation() {
         return etLoc.getText().toString();
     }
 
-
+    /**
+     * Set Status 
+     * @param newStatus
+     */
     public void setStatus(String newStatus) {
         Toast toast=Toast.makeText(getApplicationContext(), newStatus,Toast.LENGTH_LONG );
         toast.show();
