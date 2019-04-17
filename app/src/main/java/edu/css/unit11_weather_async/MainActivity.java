@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * When get weather button is clicked method is called
+     * @param v
+     * @throws XmlPullParserException, URISyntaxException, IOException
      */
     public void btnClick (View v) throws XmlPullParserException, URISyntaxException, IOException {
         // Download the weather asynchronously
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * get Location from User input
      * Retrieve the user's location based on their input
+     * @return String
      */
     public String getLocation() {
         return etLoc.getText().toString();

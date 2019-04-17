@@ -28,9 +28,6 @@ public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
      */
     MainActivity mainActivityLink;
     /**
-     *Implementation of AsyncTask used to download XML feed
-     *This method is run in a separate thread.  Do not do any UI stuff here.
-     * Calls onPostExecute when done and passes it the return value or String
      * @param new_actWeather
      */
     @Override
@@ -110,7 +107,6 @@ public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
      * Methods runs to update if information changes.
      * @param result
      */
-
     @Override
     protected void onPostExecute(String result) {
         Log.v("== CIS 3334 ==", "in onPostExecute");
